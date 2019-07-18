@@ -27,3 +27,11 @@ SpringbootApplication中注解\
  
 6.HttpServletRequest从request.getParameter("")获取\
  1)public Object getRequest(HttpServletRequest request){}
+
+### 常用Json框架和注解
+javaBean转换成Json，性能:Jackson>FastJson>Gson>Json-lib (测试方法：循环序列化，百万次，次数达到一定才可以看出差异)\
+jackson处理相关自动：\
+  指定字段不返回：@JsonIgnore\
+  指定日期格式：@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")\
+  空字段不返回：@JsonInclude(Include.NON_NULL)\
+  指定别名：@JsonProperty
