@@ -19,11 +19,11 @@ SpringbootApplication中注解\
  1)public Object getUser(@RequestParam(defaultValue="0",name="page") int from){}\
  2)public Object getUser(@RequestParam(defaultValue="0",name="page") int from,@RequestParam(defaultValue="1",name="page2") int to){}
  
-4.@RequestBody 请求映射实体类
+4.@RequestBody 请求映射实体类\
  1)public Object saveUser(@RequestBody User user){}
  
-5.@RequestHeader 请求头,鉴定权限
+5.@RequestHeader 请求头,鉴定权限\
  1)public Object getHeader(@RequestHeader("access_token") String accessToken,String id){}
  
-6.HttpServletRequest从request.getParameter("")获取
+6.HttpServletRequest从request.getParameter("")获取\
  1)public Object getRequest(HttpServletRequest request){}
