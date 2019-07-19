@@ -46,3 +46,13 @@ jackson处理相关自动：\
 2.同个文件的加载顺序\
 Springboot会挨个从里面查找\
   META/resources > resources > static > public
+  
+3.返回页面必须引入依赖thymeleaf
+        
+      <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>  
+        
+注意：在返回页面的时候，使用@RestController注解时，需要配合视图解析器ModelAndView mv = new ModelAndView("index");
+否则返回不了页面。如果是@Controller，直接return "index"即可。
