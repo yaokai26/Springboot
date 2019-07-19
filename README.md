@@ -64,4 +64,4 @@ Springboot会挨个从里面查找\
     spring.resources.static-locations=classpath:/META-INF/resources/,
     classpath:/resources/,classpath:/static,classpath:/public/(,classpath:/test/  可自定义读取文件夹位置)
 
-6.静态资源文件存储在CDN
+6.静态资源文件存储在CDN(访问量大，耗时，一般与java分离，静态资源服务器)
