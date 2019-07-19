@@ -47,7 +47,7 @@ jackson处理相关自动：\
 Springboot会挨个从里面查找\
   META/resources > resources > static > public
   
-3.返回页面必须引入依赖thymeleaf
+3.返回页面引入依赖thymeleaf,模板引擎，查找的是templates文件夹下的静态文件
         
       <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,7 +57,7 @@ Springboot会挨个从里面查找\
 注意：在返回页面的时候，使用@RestController注解时，需要配合视图解析器ModelAndView mv = new ModelAndView("index");
 否则返回不了页面。如果是@Controller，直接return "index"即可。
 
-4.css文件,图片文件返回,资源文件static,resources目录可以直接访问,默认进去查找,只要输入里面的子目录,css、images等
+4.css文件,图片文件返回,资源文件在springboot默认加载的文件夹static,resources目录下,可以直接访问,默认进去查找,只要输入里面的子目录,css、images等
 
 5.默认配置
 
@@ -65,3 +65,8 @@ Springboot会挨个从里面查找\
     classpath:/resources/,classpath:/static,classpath:/public/(,classpath:/test/  可自定义读取文件夹位置)
 
 6.静态资源文件存储在CDN(访问量大，耗时，一般与java分离，静态资源服务器)
+
+7.文件上传：MultiPartFile
+   
+    MultiPartFile源自SpringMVC,MultiPartFile对象的transferTo方法用于文件保存，效率和操作比FileOutStream
+    更高效和方便。
