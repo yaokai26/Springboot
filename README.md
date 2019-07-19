@@ -85,7 +85,7 @@ Springboot会挨个从里面查找\
     }
     
   2.maven project将springboot项目打包install,打成jar包放在target路径下,cmd执行启动jar包：java -jar springboot-0.0.1-SNAPSHOT.jar启动。\
-  如果提示no main manifest attribute, in jar包里，找不到启动类入口,需要在pom.xml里添加依赖
+  如果提示no main manifest attribute, in jar包里，找不到启动类入口,需要在pom.xml里添加依赖,生成manifest文件
   
       <build>
         <plugins>
