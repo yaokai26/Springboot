@@ -56,3 +56,12 @@ Springboot会挨个从里面查找\
         
 注意：在返回页面的时候，使用@RestController注解时，需要配合视图解析器ModelAndView mv = new ModelAndView("index");
 否则返回不了页面。如果是@Controller，直接return "index"即可。
+
+4.css文件,图片文件返回,资源文件static,resources目录可以直接访问,默认进去查找,只要输入里面的子目录,css、images等
+
+5.默认配置
+
+    spring.resources.static-locations=classpath:/META-INF/resources/,
+    classpath:/resources/,classpath:/static,classpath:/public/(,classpath:/test/  可自定义读取文件夹位置)
+
+6.静态资源文件存储在CDN
