@@ -35,3 +35,14 @@ jackson处理相关自动：\
   指定日期格式：@JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")\
   空字段不返回：@JsonInclude(Include.NON_NULL)\
   指定别名：@JsonProperty
+
+### 目录资源结构
+1.目录讲解：src/main/java:存放代码\
+           src/main/resources\
+             static:存放静态文件，如css,js,image\
+             template:存放静态页面,jsp,html,tpl\
+             config:存放配置文件.application.properties
+             
+2.同个文件的加载顺序\
+Springboot会挨个从里面查找\
+  META/resources > resources > static > public
