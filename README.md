@@ -70,3 +70,29 @@ Springboot会挨个从里面查找\
    
     MultiPartFile源自SpringMVC,MultiPartFile对象的transferTo方法用于文件保存，效率和操作比FileOutStream
     更高效和方便。
+
+8.Jar包方式运行web项目的文件上传和访问处理\
+  1.文件大小的限制，放在启动类里SpringBootApplication类里，其实只要有@Configuration注解的类就行
+  
+    @Bean
+    public MultipartConfigElement multipartConfigElement(){
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+        //设置单个文件最大
+        factory.setMaxFileSize("102400KB");//硬编码 后期可以放在配置文件里
+        //设置总上传文件大小
+        factory.setMaxRequestSize("102400000KB");
+        return factory.createMultipartConfig();
+    }
+    
+  2.maven project将springboot项目打包install,打成jar包放在target路径下,cmd执行启动jar包：java -jar springboot-0.0.1-SNAPSHOT.jar启动。\
+  如果提示no main manifest attribute, in jar包里，找不到启动类入口,需要在pom.xml里添加依赖
+  
+      <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+     </build>
+     
