@@ -96,3 +96,11 @@ Springboot会挨个从里面查找\
         </plugins>
      </build>
      
+### 热部署
+ 1.添加依赖
+
+         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
