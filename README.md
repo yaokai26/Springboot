@@ -96,11 +96,17 @@ Springboot会挨个从里面查找\
         </plugins>
      </build>
      
-### 热部署
- 1.添加依赖
+### 热部署 
+1.添加依赖
 
          <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+
+2.不被热部署的文件\
+  1）/META-INF/maven,/META-INF/resources,/resources,/static,/public,or /templates \
+  2)指定文件不进行热部署 spring.devtools.restart.exclude=static/**,public** \
+  3)手工触发重启 spring.devtools.restart.trigger-file=trigger.txt 改代码不重启，通过一个文本去控制
+  
