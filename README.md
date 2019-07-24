@@ -137,8 +137,9 @@ SpringBoot测试进阶之MocKMvc: \
  1.异常注解介绍\
   @ControllerAdvice如果是返回Json格式，用@RestControllerAdvice就可以不加@ResponseBody
   
-  //捕获全局异常，处理所有不可知的异常
+  //捕获全局异常，处理所有不可知的异常\
   @ExceptionHandler(value=Exception.class)
   
  2.自定义异常和页面跳转\
   放在templates下，需要配置application.properties路径，页面跳转还需要通过ModelAndView来实现。
+    @ExceptionHandler(value=MyException.class)
