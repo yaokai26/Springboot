@@ -113,7 +113,7 @@ Springboot会挨个从里面查找\
 ### springboot配置文件映射到属性和实体类
 1.方式一：\
     Controller上注解：@PropertySource({"classpath:application.properties"})\
-    增加字段属性:@Value("${test.name}")
+    增加字段属性:@Value("${test.name}")\
 2.方式二：实体类配置\
     实体类加上注解@Component\
                  @PropertySource({"classpath:application.properties"})\ 
