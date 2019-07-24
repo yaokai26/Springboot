@@ -118,5 +118,27 @@ Springboot会挨个从里面查找\
     实体类加上注解@Component\
                  @PropertySource({"classpath:application.properties"})\ 
                  @ConfigurationProperties(prefix="test")  直接通过名称(需要一一对应)去映射，无需@Value注解，如果要加@Value("${test.name}")，可以名字不对应。
+
                 
- 
+ ### springboot 单元测试
+@RunWith(SpringRunner.class)\
+@SpringBootTest(classes={SpringbootApplication.class})//启动整个项目
+
+SpringBoot测试进阶之MocKMvc: \
+  1)增加类注解 @RunWith(SpringRunner.class)\
+              @AutoConfigureMockMvc\
+              @SpringBootTest(class={SpringBootApplication.class})\
+  2)相关API\
+           perform:执行一个RequestBuilder请求\
+           andExcept:添加ResultMatcher -> MockMvcResultMatcher验证规则\
+           andReturn:最后返回相应的MvcResult-> Response
+           
+### SpringBoot 异常处理 
+ 1.异常注解介绍\
+  @ControllerAdvice如果是返回Json格式，用@RestControllerAdvice就可以不加@ResponseBody
+  
+  //捕获全局异常，处理所有不可知的异常
+  @ExceptionHandler(value=Exception.class)
+  
+ 2.自定义异常和页面跳转\
+  放在templates下，需要配置application.properties路径，页面跳转还需要通过ModelAndView来实现。
