@@ -4,7 +4,7 @@ SpringbootApplication中注解\
 @SpringBootApplication=@ComponentScan + @SpringBootConfiguration + @EnableAutoConfiguration\
 @RestController = @Controller + @ResponseBody
 
-#### 1、Get请求
+#### Get请求
 1.单一参数@RequestMapping(path="/{id}",method=RequestMethod.GET)\
  1)public Object findUser(@PathVariables String id){}\
  2)public Object findUser(@PathVariables String id,@PathVariables String name){}
@@ -110,3 +110,13 @@ Springboot会挨个从里面查找\
   2)指定文件不进行热部署 spring.devtools.restart.exclude=static/**,public** \
   3)手工触发重启 spring.devtools.restart.trigger-file=trigger.txt 改代码不重启，通过一个文本去控制
   
+### springboot配置文件映射到属性和实体类
+1.方式一：\
+    Controller上注解：@PropertySource({"classpath:application.properties"})\
+    增加字段属性:@Value("${test.name}")
+2.方式二：实体类配置\
+    实体类加上注解@Component\
+                 @PropertySource({"classpath:application.properties"})\ 
+                 @ConfigurationProperties(prefix="test")  直接通过名称(需要一一对应)去映射，无需@Value注解，如果要加@Value("${test.name}")，可以名字不对应。
+                
+ 
