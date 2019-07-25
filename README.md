@@ -143,3 +143,12 @@ SpringBoot测试进阶之MocKMvc: \
  2.自定义异常和页面跳转\
   放在templates下，需要配置application.properties路径，页面跳转还需要通过ModelAndView来实现。
     @ExceptionHandler(value=MyException.class)
+
+### SpringBoot 项目启动方式以
+1.IDE启动，run 'SpringBootApplication'\
+2.JAR包，install项目，java -jar XXX.jar 方式启动\
+3.WAR包,首先pom文件添加打包方式
+     <!-- 打包方式  -->
+    <packaging>war</packaging>
+      
+      
