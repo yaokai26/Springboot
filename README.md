@@ -145,10 +145,26 @@ SpringBoot测试进阶之MocKMvc: \
     @ExceptionHandler(value=MyException.class)
 
 ### SpringBoot 项目启动方式以
-1.IDE启动，run 'SpringBootApplication'\
-2.JAR包，install项目，java -jar XXX.jar 方式启动\
-3.WAR包,首先pom文件添加打包方式
+1.IDE启动：run 'SpringBootApplication'\
+2.JAR包：install项目，java -jar XXX.jar 方式启动\
+3.WAR包：\
+   1)首先pom文件添加打包方式，将jar修改为war
+
      <!-- 打包方式  -->
     <packaging>war</packaging>
+    build标签添加构建项目的名称
+    <finalName>Yaokai_SpringBoot</finalName>
       
+   2)修改启动类,
+   
+    public class SpringbootApplication extends SpringBootServletInitializar{
+      @Override
+      protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(SpringBootApplication.class);
+      }
       
+      public static void main(String[] args){
+        SpringApplication.run(SpringbootApplication.class,args);
+      }
+    }
+    3)打包，将项目war包放入tomcat的webapp文件夹下，启动tomcat
