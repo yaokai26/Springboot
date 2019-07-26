@@ -187,5 +187,13 @@ SpringBoot测试进阶之MocKMvc: \
     1.启动类增加@ServletComponentScan进行扫描
     2.新建一个Filter类,实现Filter接口
     3.@WebFilter标记该接口,被spring扫描，urlPattern：拦截规则，支持正则
-    4.
+    4.控制chain.doFilter方法的调用，来实现是否通过放行，不放行，web应用通过resp.sendRedirect("index.html")
+
+### Springboot 原生servlet、Listener注解及应用
+    1、原生Servlet
+    1）@WebServlet(name="userServlet",urlPattern="/v1/api/test/customs")
+    2）extends HttpServlet
+    2、Listener
+    1）@WebListener
+    2) 监听器有多种，ServletRequestListener、ServletContextListener、HttpSessionListener,使用时实现不同接口即可
    
