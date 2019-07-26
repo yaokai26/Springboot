@@ -226,4 +226,4 @@ SpringBoot测试进阶之MocKMvc: \
 过滤器和拦截器的顺序：Filter--> Interceptor-->controller执行--> Interceptor-->Filter
 
 ### Starter讲解
-  
+  1.模板引擎Thymeleaf：轻量级的模板引擎，可以直接在浏览器打开并且正确显示模板页面，html结尾
