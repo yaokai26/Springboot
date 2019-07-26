@@ -197,3 +197,18 @@ SpringBoot测试进阶之MocKMvc: \
     1）@WebListener
     2) 监听器有多种，ServletRequestListener、ServletContextListener、HttpSessionListener,使用时实现不同接口即可
    
+### Springboot 自定义拦截器Interceptor
+     需要实现WebMvcConfigurer来添加自定义拦截器
+    1.@Configuration注解，implements WebMvcConfigurer(这个就是做web配置的)
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/api2/*/**");
+        super.addInterceptors(registry);
+    }
+    2.自定义拦截器实现HandlerInterceptor，重写三个方法
+    preHandle：在调用controller之前，通常用于权限校验等(HandlerInterceptor.super.preHandle())
+    postHandle：在调用完controller之后，视图渲染之前(HandlerInterceptor.super.postHandle())如果controller异常，不会调用
+    afterCompletion:整个完成之后，通常用于资源清理(HandlerInterceptor.super.afterCompletion())不管有没有异常，都会调用
+    3.拦截器注意事项：
+    1)先注册先拦截
+    2)配置拦截器@Configuration,拦截路径/*/,最后路径为/** 如上
