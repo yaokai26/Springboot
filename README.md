@@ -212,3 +212,13 @@ SpringBoot测试进阶之MocKMvc: \
     3.拦截器注意事项：
     1)先注册先拦截(WebMvcConfigurer里注册)
     2)配置拦截器@Configuration,拦截路径/*/,最后路径为/**,如上
+
+执行顺序有点诡异：
+    
+    LoginInterceptor----->preHandle is running  -----先注册先执行
+    SecondInterceptor------>preHandle is running
+    in controller-----> controller is running 
+    SecondInterceptor------>postHandle is running   --------但是controller执行完后,后注册的先执行，队列queue的概念？
+    LoginInterceptor----->postHandle is running
+    SecondInterceptor------>afterCompletion is running
+    LoginInterceptor----->afterCompletion is running
