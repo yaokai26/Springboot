@@ -2,7 +2,17 @@
 ### 注解
 SpringbootApplication中注解\
 @SpringBootApplication=@ComponentScan + @SpringBootConfiguration + @EnableAutoConfiguration\
+注意：SpringBootApplication类还有几个方法，可以排除特定的包名或者类，也可以扫描指定的类或者包名\
+ 
+    1.@SpringBootConfiguration包含@Configuration，标注当前是配置类，会把@Bean标注的方法纳入spring容器中，实例名就是方法名
+      @Configuration标注在类上，相当于把类当做spring的xml配置文件中的<beans>，配置spring容器(应用上下文)
+      @Bean标注在方法上，相当于spring配置文件中的<bean>，作用为注册bean对象
+    2.@ComponentScan 可以通过该注解指定扫描某些包下含有如下注解(@Component、@Service、 @Repository、 @Controller、@Entity)
+      的均注册为spring beans
+    3.@EnableAutoConfiguration 根据定义在classpath下的类，自动生成bean,并加载到Spring的Context中
+  
 @RestController = @Controller + @ResponseBody
+
 
 #### Get请求
 1.单一参数@RequestMapping(path="/{id}",method=RequestMethod.GET)\
@@ -160,7 +170,7 @@ SpringBoot测试进阶之MocKMvc: \
     public class SpringbootApplication extends SpringBootServletInitializar{
       @Override
       protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(SpringBootApplication.class);
+        return builder.sources(SpringbootApplication.class);//class文件是当前类名，别写错。
       }
       
       public static void main(String[] args){
@@ -168,3 +178,14 @@ SpringBoot测试进阶之MocKMvc: \
       }
     }
   3)打包，将项目war包放入tomcat的webapp文件夹下，启动tomcat
+
+### Springboot过滤器Filter 
+ 1.优先级：值越小，优先级越高 Ordered.HIGHEST.PERCEDENCE、Ordered.LOWEST.PERCEDENCE \
+ 2.springboot启动默认的过滤器有：characterEncodingFilter、hiddenHttpMethodFilter、requestContextFilter等\
+ 3.自定义filter
+ 
+    1.启动类增加@ServletComponentScan进行扫描
+    2.新建一个Filter类,实现Filter接口
+    3.@WebFilter标记该接口,被spring扫描，urlPattern：拦截规则，支持正则
+    4.
+   
