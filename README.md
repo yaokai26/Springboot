@@ -222,3 +222,5 @@ SpringBoot测试进阶之MocKMvc: \
     LoginInterceptor----->postHandle is running
     SecondInterceptor------>afterCompletion is running
     LoginInterceptor----->afterCompletion is running
+
+过滤器和拦截器的顺序：Filter--> Interceptor-->controller执行--> Interceptor-->Filter
