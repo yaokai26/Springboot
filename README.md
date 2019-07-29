@@ -67,7 +67,8 @@ Springboot会挨个从里面查找\
 注意：在返回页面的时候，使用@RestController注解时，需要配合视图解析器ModelAndView mv = new ModelAndView("index");
 否则返回不了页面。如果是@Controller，直接return "index"即可。
 
-4.css文件,图片文件返回,资源文件在springboot默认加载的文件夹static,resources目录下,可以直接访问,默认进去查找,只要输入里面的子目录,css、images等
+4.css文件,图片文件返回,资源文件在springboot默认加载的文件夹static,resources目录下,可以直接访问,默认进去查找,只要输入里面的子目录,css、images等\
+spring.resources.static-locations这个配置配置的就是springboot直接访问页面或者资源的查找路径
 
 5.默认配置
 
@@ -226,4 +227,17 @@ SpringBoot测试进阶之MocKMvc: \
 过滤器和拦截器的顺序：Filter--> Interceptor-->controller执行--> Interceptor-->Filter
 
 ### Starter讲解
-  1.模板引擎Thymeleaf：轻量级的模板引擎，可以直接在浏览器打开并且正确显示模板页面，html结尾
+  1.模板引擎Thymeleaf：轻量级的模板引擎，可以直接在浏览器打开并且正确显示模板页面，html结尾，用法同freemarker
+  
+     #开发时关闭缓存，不然没法看到实时页面
+     spring.thymeleaf.cache=false
+     spring.thymeleaf.mode=HTML5
+     #前缀
+     spring.thymeleaf.prefix=classpath:/templates/
+     #编码
+     spring.thymeleaf.encoding=UTF-8
+     #类型
+     spring.thymeleaf.servlet.content-type=text/html
+     #名称的后缀
+     spring.thymeleaf.suffix=.html
+ 
