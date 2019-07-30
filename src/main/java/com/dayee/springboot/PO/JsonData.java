@@ -45,9 +45,28 @@ public class JsonData implements Serializable {
         this.data = data;
     }
 
+    public JsonData() {
+    }
+
     public JsonData(int code, Object data, Object message) {
         this.code = code;
         this.data = data;
         this.message = message;
+    }
+
+    public static Object buildSuccess(Object result){
+        JsonData jsonData = new JsonData();
+        jsonData.setCode(0);//0-成功
+        jsonData.setData(result);
+        jsonData.setMessage("成功");
+        return jsonData;
+    }
+
+    public static Object buildFailure(Object result){
+        JsonData jsonData = new JsonData();
+        jsonData.setCode(1);//1-失败
+        jsonData.setData(result);
+        jsonData.setMessage("失败");
+        return jsonData;
     }
 }

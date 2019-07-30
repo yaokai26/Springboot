@@ -1,15 +1,27 @@
 
 package com.dayee.springboot.PO;
 
+import java.util.Date;
+
 public class User {
+
+    private int id;
 
     private int    age;
 
     private String name;
 
-    private String pwd;
-
     private String phone;
+
+    private Date createDate;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getAge() {
 
@@ -31,16 +43,6 @@ public class User {
         this.name = name;
     }
 
-    public String getPwd() {
-
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-
-        this.pwd = pwd;
-    }
-
     public String getPhone() {
 
         return phone;
@@ -49,5 +51,13 @@ public class User {
     public void setPhone(String phone) {
 
         this.phone = phone;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }
