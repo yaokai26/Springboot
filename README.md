@@ -241,3 +241,6 @@ SpringBoot测试进阶之MocKMvc: \
      #名称的后缀
      spring.thymeleaf.suffix=.html
  
+### springboot整合Mybatis
+OA系统：办公自动化\
+OA系统比较喜欢用hibernate，ORM框架，互联网行业更多用Mybatis，半ORM，不提供对象和关系模型的直接映射
