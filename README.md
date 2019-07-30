@@ -282,6 +282,8 @@ OA系统比较喜欢用hibernate，ORM框架，互联网行业更多用Mybatis�
     spring.datasource.password=password
     #注释掉下面的数据源，默认使用HikariDataSource数据源，这个属性用来切换数据源
     #spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+    #打印sql语句
+    mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 注意：&serverTimezone=UTC这个用来标明时区
 
 3.mapper开发：\
@@ -294,3 +296,27 @@ mapper包是数据库的操作，controller--> service --> mapper,所以开发�
 5.Controller开发:\
 6.启动类：
 @MapperScan("com.dayee.springboot.mapper")扫描mapper包
+
+7.CRUD增删改查
+ 
+    @Insert("INSERT INTO t_user_info(name,age,create_time,phone) VALUES(#{name},#{age},#{create_time},#{phone})")
+    @Options(useGeneratedKeys =true,keyProperty = "id",keyColumn = "id")
+    int insert(User user);
+
+    @Select("SELECT * FROM t_user_info")
+    @Results({
+            @Result(column = "create_time",property = "create_time")
+    })
+    List<User> getAll();
+
+    @Select("SELECT * FROM t_user_info WHERE id = #{id}")
+    @Results({
+            @Result(column = "create_time",property = "create_time")
+    })
+    User findById(long id);
+
+    @Update("UPDATE t_user_info SET name=#{name} WHERE id=#{id}")
+    void update(User user);
+
+    @Delete("DELETE FROM t_user_info WHERE id =#{id}")
+    void delete(long userId);
