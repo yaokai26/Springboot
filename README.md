@@ -244,7 +244,7 @@ SpringBoot测试进阶之MocKMvc: \
 ### springboot整合Mybatis
 OA系统：办公自动化\
 OA系统比较喜欢用hibernate，ORM框架，互联网行业更多用Mybatis，半ORM，不提供对象和关系模型的直接映射\
-Mybatis依赖：
+1.导入Mybatis依赖：
   
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -275,7 +275,13 @@ Mybatis依赖：
             <version>3.4.6</version>
         </dependency>        
 
+2.mapper开发：\
 mapper包是数据库的操作，controller--> service --> mapper,所以开发的顺序，先开发mapper类，\
 @Insert("INSERT INTO t_user_info(name,phone,create_time,age) VALUES (#{name},#{phone},#{createDate},#{age})")\
 @Options(useGeneratedKeys=true,keyProperty="id",keyColumn="id")//keyProperty是javabean的属性，keyColumn是数据库字段\
 取值用#{}而不用${}，因为#{}是预编译的，可以防止sql注入
+
+3.service开发:\
+4.Controller开发:\
+5.启动类：
+@MapperScan("com.dayee.springboot.mapper")扫描mapper包
