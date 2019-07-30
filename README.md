@@ -243,4 +243,39 @@ SpringBoot测试进阶之MocKMvc: \
  
 ### springboot整合Mybatis
 OA系统：办公自动化\
-OA系统比较喜欢用hibernate，ORM框架，互联网行业更多用Mybatis，半ORM，不提供对象和关系模型的直接映射
+OA系统比较喜欢用hibernate，ORM框架，互联网行业更多用Mybatis，半ORM，不提供对象和关系模型的直接映射\
+Mybatis依赖：
+  
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+            <scope>runtime</scope>
+        </dependency>
+          <!-- MySQL的JDBC驱动包-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- 引入第三方数据源-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.6</version>
+        </dependency>        
+
+mapper包是数据库的操作，controller--> service --> mapper,所以开发的顺序，先开发mapper类，\
+@Insert("INSERT INTO t_user_info(name,phone,create_time,age) VALUES (#{name},#{phone},#{createDate},#{age})")\
+@Options(useGeneratedKeys=true,keyProperty="id",keyColumn="id")//keyProperty是javabean的属性，keyColumn是数据库字段\
+取值用#{}而不用${}，因为#{}是预编译的，可以防止sql注入
