@@ -364,3 +364,8 @@ mapper包是数据库的操作，controller--> service --> mapper,所以开发�
 2.异步任务
 启动类添加@EnableAsync,@Async标注一个类或者方法,表面该类是异步类或者该方法是异步方法,注意不能直接写到Controller类里\
 要获取异步任务结果，Future<String>返回AsyncResult<String>("执行完成"),Controller类里判断任务是否结束用task.isDone()
+
+
+### springboot整合logback日志框架
+日志级别：DEBUG < INFO < WARN < ERROR \ 
+java -jar  xxx.jar --Debug 用jar包启动debug级别的日志 \
