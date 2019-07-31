@@ -352,9 +352,11 @@ mapper包是数据库的操作，controller--> service --> mapper,所以开发�
 隔离级别有4种：分别为：未提交读、读写提交、可重复读和串行化
 
 ### springboot整合定时任务和异步任务
-常见的定时任务：1、java自带的java.util.Timer类，配置比较麻烦，时间延后问题\
-              2、Quartz\
-              3、SpringBoot注解：1)启动类添加@EnableScheduling开启定时任务，自动扫描\
-                                2) 定时任务类添加@Component被容器扫描\
-                                3) 定时方法加@Scheduled(fixedRate=2000) 每2秒执行一次\
+常见的定时任务：
+       
+       1、java自带的java.util.Timer类，配置比较麻烦，时间延后问题
+       2、Quartz
+       3、SpringBoot注解：1)启动类添加@EnableScheduling开启定时任务，自动扫描
+                                2) 定时任务类添加@Component被容器扫描
+                                3) 定时方法加@Scheduled(fixedRate=2000) 每2秒执行一次
                                 
