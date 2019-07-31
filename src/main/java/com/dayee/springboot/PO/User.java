@@ -5,23 +5,16 @@ import java.util.Date;
 
 public class User {
 
-    private int id;
+    private int     id;
 
     private int    age;
 
     private String name;
 
+//    private String pwd;
+    private Date create_time;
+
     private String phone;
-
-    private Date createDate;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getAge() {
 
@@ -43,6 +36,16 @@ public class User {
         this.name = name;
     }
 
+//    public String getPwd() {
+//
+//        return pwd;
+//    }
+//
+//    public void setPwd(String pwd) {
+//
+//        this.pwd = pwd;
+//    }
+
     public String getPhone() {
 
         return phone;
@@ -53,11 +56,19 @@ public class User {
         this.phone = phone;
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public int getId() {
+        return id;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 }

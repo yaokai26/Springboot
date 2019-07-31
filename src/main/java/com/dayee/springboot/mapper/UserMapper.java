@@ -1,17 +1,31 @@
 package com.dayee.springboot.mapper;
 
 import com.dayee.springboot.PO.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.*;
 
-/**
- * 访问数据的接口
- */
+import java.util.List;
+
 public interface UserMapper {
 
-    //#{}取值预编译，防止sql注入，${}有注入风险
-    @Insert("INSERT INTO t_user_info(name,phone,create_time,age) VALUES(#{name},#{phone},#{createDate},#{age})")
-    @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")//keyProperty是java对象的属性，kegColumn是数据库字段
+    @Insert("INSERT INTO t_user_info(name,age,create_time,phone) VALUES(#{name},#{age},#{create_time},#{phone})")
+    @Options(useGeneratedKeys =true,keyProperty = "id",keyColumn = "id")
     int insert(User user);
+
+    @Select("SELECT * FROM t_user_info")
+    @Results({
+            @Result(column = "create_time",property = "create_time")
+    })
+    List<User> getAll();
+
+    @Select("SELECT * FROM t_user_info WHERE id = #{id}")
+    @Results({
+            @Result(column = "create_time",property = "create_time")
+    })
+    User findById(long id);
+
+    @Update("UPDATE t_user_info SET name=#{name} WHERE id=#{id}")
+    void update(User user);
+
+    @Delete("DELETE FROM t_user_info WHERE id =#{id}")
+    void delete(long userId);
 }

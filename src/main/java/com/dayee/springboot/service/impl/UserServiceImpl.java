@@ -6,16 +6,40 @@ import com.dayee.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Autowired(required = false)
+    //或者@Resource
     private UserMapper userMapper;
 
     @Override
-    public int add(User user) {
+    public int insert(User user) {
         userMapper.insert(user);
-        int id = user.getId();
-        return id;
+        return user.getId();
+    }
+
+    @Override
+    public List<User> getAll() {
+        List<User> list = userMapper.getAll();
+        return list;
+    }
+
+    @Override
+    public User findById(long id) {
+        User user = userMapper.findById(id);
+        return user;
+    }
+
+    @Override
+    public void update(User user) {
+        userMapper.update(user);
+    }
+
+    @Override
+    public void delete(long id) {
+        userMapper.delete(id);
     }
 }
