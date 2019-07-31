@@ -5,6 +5,8 @@ import com.dayee.springboot.PO.User;
 import com.dayee.springboot.mapper.UserMapper;
 import com.dayee.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,6 +58,23 @@ public class UserController {
     @GetMapping("/delete")
     public Object delete(long id){
         userService.delete(id);
+        return JsonData.buildSuccess(null);
+    }
+
+    @GetMapping("/addAccount")
+//    @Transactional(propagation = Propagation.REQUIRED)
+//    public Object addAccount(){
+//        User user = new User();
+//        user.setName("测试事务");
+//        user.setAge(26);
+//        user.setPhone("15810878110");
+//        user.setCreate_time(new Date());
+//        userService.addAccount(user);
+//        int index  = 1/0;
+//        return JsonData.buildException(null);
+//    }
+    public Object addAccount(){
+        userService.addAccount();
         return JsonData.buildSuccess(null);
     }
 }
