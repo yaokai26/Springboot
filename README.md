@@ -320,3 +320,35 @@ mapper包是数据库的操作，controller--> service --> mapper,所以开发�
 
     @Delete("DELETE FROM t_user_info WHERE id =#{id}")
     void delete(long userId);
+    
+8.事务处理\
+一般分单机事务和分布式事务。事务一般放在service层,当然也不是不能放在其他层面。
+
+       <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.1.8.RELEASE</version>
+       </dependency>
+@Transactional(isolation=Isolation.DEFAULT,propagation=Propagation.REQUIRED)//隔离级别和传播行为\
+传播行为有7种：
+
+    1 REQUIRED(0)
+    需要事务，它是默认传播行为，如果当前存在事务，就沿用当前事务，否则新建一个事务运行子方法。
+    2 SUPPORTS(1)
+    支持事务，如果当前存在事务，就沿用当前事务，如果不存在，则继续采用无事务的方式运行子方法。
+    3 MANDATORY(2)
+    必须使用事务，如果当前没有事务，则会抛出异常，如果存在当前事务，就沿用当前事务。
+    4 REQUIRES_NEW(3)
+    无论当前事务是否存在，都会创建新事务运行方法，这样新事务就可以拥有新的锁和隔离级别等特性，与当前事务相互独立。
+    5 NOT_SUPPORTED(4)
+    不支持事务，当前存在事务时，将挂起事务，运行方法。
+    6 NEVER(5)
+    不支持事务，如果当前方法存在事务，则抛出异常，否则继续使用无事务机制运行。
+    7 NESTED(6)
+    在当前方法调用子方法时，如果子方法发生异常，只回滚子方法执行过的SQL，而不回滚当前方法的事务。
+
+    常用的传播行为主要有三种：REQUIRED 、REQUIRES_NEW、 NESTED。
+
+隔离级别有4种：分别为：未提交读、读写提交、可重复读和串行化
+
+    
