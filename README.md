@@ -320,3 +320,13 @@ mapper包是数据库的操作，controller--> service --> mapper,所以开发�
 
     @Delete("DELETE FROM t_user_info WHERE id =#{id}")
     void delete(long userId);
+    
+8.事务处理\
+一般分单机事务和分布式事务。事务一般放在service层,当然也不是不能放在其他层面。
+
+       <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.1.8.RELEASE</version>
+       </dependency>
+@Transactional(isolation=Isolation.DEFAULT,propagation=Propagation.REQUIRED)//隔离级别和传播行为
