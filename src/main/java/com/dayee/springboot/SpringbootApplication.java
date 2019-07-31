@@ -10,6 +10,8 @@ import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.annotation.MultipartConfig;
@@ -35,6 +37,8 @@ import java.net.MalformedURLException;
 @SpringBootApplication
 @ServletComponentScan
 @MapperScan("com.dayee.springboot.mapper")
+@EnableScheduling //开启定时任务
+@EnableAsync//开启异步任务
 public class SpringbootApplication extends SpringBootServletInitializer {
 
     @Override
