@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -39,6 +40,7 @@ import java.net.MalformedURLException;
 @MapperScan("com.dayee.springboot.mapper")
 @EnableScheduling //开启定时任务
 @EnableAsync//开启异步任务
+@EnableElasticsearchRepositories(basePackages = "com.dayee.springboot.respository")
 public class SpringbootApplication extends SpringBootServletInitializer {
 
     @Override
