@@ -388,3 +388,24 @@ elasticsearch:针对数据量特别大 PB TB\
 			
     mysql：database     table                 rocord 
     es   : index	type（只能存在一个)    document
+
+2.整合ES\
+
+	<dependency>  
+	     <groupId>org.springframework.boot</groupId>  
+	     <artifactId>spring-boot-starter-data-elasticsearch</artifactId>  
+	</dependency>  
+	
+Repository包下新建接口继承ElasticSearchRepository,类上添加注解@Document(indexName="blog",type="article"),注意要小写
+同时，启动类要添加注解扫描Repository包下的类，@EnableElasticSearchRepositories(basePages="XXXX")，不然启动会报错！
+
+	spring.data.elasticsearch.cluster-name=elasticsearch 
+	spring.data.elasticsearch.cluster-nodes=localhost:9300 
+	spring.data.elasticsearch.repositories.enabled=true 
+	
+QueryBuilder的使用：QueryBuilder queryBuilder = QueryBuilders.matchQuery("title","123");\
+查看ES信息：
+			
+	查看索引信息：http://localhost:9200/_cat/indices?v
+	查看某个索引库结构：http://localhost:9200/blog
+	查看某个对象：http://localhost:9200/blog/article/1
