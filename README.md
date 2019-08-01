@@ -373,8 +373,8 @@ java -jar  xxx.jar --Debug 用jar包启动debug级别的日志 \
 ### springboot整合redis
 常见redistemplate种类讲解和缓存实操(使用自动注入)
 
-			1、注入模板
-			@Autowired
-			private StirngRedisTemplate strTplRedis
-			2、类型String，List,Hash,Set,ZSet
-			对应的方法分别是opsForValue()、opsForList()、opsForHash()、opsForSet()、opsForZSet()
+    1、注入模板
+    @Autowired
+    private StirngRedisTemplate strTplRedis
+    2、类型String，List,Hash,Set,ZSet
+    对应的方法分别是opsForValue()、opsForList()、opsForHash()、opsForSet()、opsForZSet()
