@@ -71,4 +71,12 @@ public class User {
     public void setCreate_time(Date create_time) {
         this.create_time = create_time;
     }
+
+    public User(){}
+
+    public User(int id, int age, String name) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
+    }
 }
