@@ -387,4 +387,4 @@ elasticsearch:针对数据量特别大 PB TB\
 特点：全文检索，结构化检索，数据统计、分析，接近实时处理，分布式搜索(可部署数百台服务器)，处理PB级别的数据	搜索纠错，自动完成\
 			
     mysql：database     table                 rocord 
-			 es   : index	       type（只能存在一个)    document
+    es   : index	type（只能存在一个)    document
