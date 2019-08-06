@@ -444,3 +444,22 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
     spring.activemq.pool.enabled=false
     spring.activemq.pool.max-connections=100
 
+3.启动类@EnableJms
+
+4.消费者类用@Component注解，给spring扫描,@JmsListener(destination="order.queue")实时监听指定的消息队列
+
+5.上面的是点对点模型(1个消费者对应一个生产者),下面是发布/订阅模型
+
+    #默认是点对点模型 point to point
+    spring.jms.pub-sub-domain=true
+    
+    修改为true，支持发布订阅模型，如果要同时支持点对点和发布订阅模式，修改订阅者containerFactory="jmsListenerContainerTopic"
+    //需要给topic定义独立的JmsListenerContainer,同时注释掉配置文件spring.jms.pub-sub-domain=true
+    @Bean
+    public JmsListenerContainerFactory<?> jmsListenerContainerTopic(ConnectionFactory activeMQConnectionFactory) {
+    	DefaultJmsListenerContainerFactory bean = new DefaultJmsListenerContainerFactory();
+   	bean.setPubSubDomain(true);
+    	bean.setConnectionFactory(activeMQConnectionFactory);
+    	return bean;
+     }
+  
