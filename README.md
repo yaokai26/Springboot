@@ -424,7 +424,7 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
             <artifactId>activemq-pool</artifactId>  
         </dependency>
 此处有一个注意事项,springboot 2.1.1版本中,当application.properties中spring.activemq.pool.enabled=true时,
-会使用JmsPoolConnectionFactory，并不在activemq-pool依赖中，需要引入如下依赖：见![链接1](https://blog.csdn.net/daibang2182/article/details/84971588)
+会使用JmsPoolConnectionFactory，并不在activemq-pool依赖中，需要引入如下依赖：见[链接1](https://blog.csdn.net/daibang2182/article/details/84971588)
 	
 	<dependency>
     	    <groupId>org.messaginghub</groupId>
