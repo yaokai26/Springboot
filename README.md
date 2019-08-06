@@ -414,22 +414,33 @@ QueryBuilder的使用：QueryBuilder queryBuilder = QueryBuilders.matchQuery("ti
 JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
 1.依赖	
 	
-	<!-- 整合消息队列ActiveMQ -->
-        <dependency>  
-            <groupId>org.springframework.boot</groupId>  
-            <artifactId>spring-boot-starter-activemq</artifactId>  
-        </dependency>  
-	 <!-- 如果配置线程池则加入 -->
-        <dependency>  
-            <groupId>org.apache.activemq</groupId>  
-            <artifactId>activemq-pool</artifactId>  
-        </dependency>
+    <!-- 整合消息队列ActiveMQ -->
+    <dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-activemq</artifactId>  
+    </dependency>  
+    <!-- 如果配置线程池则加入 -->
+    <dependency>  
+         <groupId>org.apache.activemq</groupId>  
+         <artifactId>activemq-pool</artifactId>  
+    </dependency>
 此处有一个注意事项,springboot 2.1.1版本中,当application.properties中spring.activemq.pool.enabled=true时,
 会使用JmsPoolConnectionFactory，并不在activemq-pool依赖中，需要引入如下依赖：见[链接1](https://blog.csdn.net/daibang2182/article/details/84971588)
 	
-	<dependency>
-    	    <groupId>org.messaginghub</groupId>
-            <artifactId>pooled-jms</artifactId>
-	 </dependency>
+    <dependency>
+    	<groupId>org.messaginghub</groupId>
+        <artifactId>pooled-jms</artifactId>
+    </dependency>
 
+2.application.properties配置
+
+    #整合jms测试，安装在别的机器，防火墙和端口号记得开放
+    spring.activemq.broker-url=tcp://127.0.0.1:61616
+    #集群配置
+    #spring.activemq.broker-url=failover:(tcp://localhost:61616,tcp://localhost:61617)
+    spring.activemq.user=admin
+    spring.activemq.password=admin
+    #下列配置要增加依赖
+    spring.activemq.pool.enabled=false
+    spring.activemq.pool.max-connections=100
 
