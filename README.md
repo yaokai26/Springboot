@@ -409,3 +409,6 @@ QueryBuilder的使用：QueryBuilder queryBuilder = QueryBuilders.matchQuery("ti
 	查看索引信息：http://localhost:9200/_cat/indices?v
 	查看某个索引库结构：http://localhost:9200/blog
 	查看某个对象：http://localhost:9200/blog/article/1
+	
+### JMS(java message service JAVA消息服务)
+JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ
