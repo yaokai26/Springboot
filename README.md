@@ -411,4 +411,24 @@ QueryBuilder的使用：QueryBuilder queryBuilder = QueryBuilders.matchQuery("ti
 	查看某个对象：http://localhost:9200/blog/article/1
 	
 ### JMS(java message service JAVA消息服务)
-JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ
+JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
+1.依赖	
+	<!-- 整合消息队列ActiveMQ -->
+        <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-starter-activemq</artifactId>  
+        </dependency>  
+	 <!-- 如果配置线程池则加入 -->
+        <dependency>  
+            <groupId>org.apache.activemq</groupId>  
+            <artifactId>activemq-pool</artifactId>  
+        </dependency>
+此处有一个注意事项,springboot 2.1.1版本中,当application.properties中spring.activemq.pool.enabled=true时,
+会使用JmsPoolConnectionFactory，并不在activemq-pool依赖中，需要引入如下依赖：见(链接1)
+	
+	<dependency>
+    	    <groupId>org.messaginghub</groupId>
+            <artifactId>pooled-jms</artifactId>
+	 </dependency>
+
+
