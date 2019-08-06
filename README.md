@@ -413,6 +413,7 @@ QueryBuilder的使用：QueryBuilder queryBuilder = QueryBuilders.matchQuery("ti
 ### JMS(java message service JAVA消息服务)
 JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
 1.依赖	
+	
 	<!-- 整合消息队列ActiveMQ -->
         <dependency>  
             <groupId>org.springframework.boot</groupId>  
