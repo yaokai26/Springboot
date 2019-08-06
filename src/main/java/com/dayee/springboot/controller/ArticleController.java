@@ -41,6 +41,6 @@ public class ArticleController {
     public Object search(String title){
         QueryBuilder queryBuilder = QueryBuilders.matchQuery("title",title);
         Iterable<Article> list = articleService.search(queryBuilder);
-        return list;
+        return JsonData.buildSuccess(list);
     }
 }
