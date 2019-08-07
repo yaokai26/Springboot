@@ -464,7 +464,32 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
      }
  
  6.RocketMQ实战\
- 1)安装部署rocketmq:配置环境变量ROCKETMQ_HOME,修改runserver.sh和runbroker.sh中的内存参数(128m),启动mqnamesrv.cmd，再启动Broker:start mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true,如果提示找不到或者无法加载主类，%CLASSPATH%加上"",重新启动。\
- 2)可视化插件：https://github.com/apache/rocketmq-externals.git, idea导入启动,修改nameserver地址rocketmq.config.namesrvAddr=192.168.0.101:9876,默认端口localhost:8080\
- 3)
+ 1).安装部署rocketmq:配置环境变量ROCKETMQ_HOME,修改runserver.sh和runbroker.sh中的内存参数(128m),启动mqnamesrv.cmd，再启动Broker:start mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true,如果提示找不到或者无法加载主类，%CLASSPATH%加上"",重新启动。\
+ 2).可视化插件：https://github.com/apache/rocketmq-externals.git, idea导入启动,修改nameserver地址rocketmq.config.namesrvAddr=192.168.0.101:9876,默认端口localhost:8080\
+ 3).DESC: service not available now, maybe disk full, CL:
+	解决：修改启动脚本runbroker.sh，在里面增加一句话即可：\		
+	JAVA_OPT="${JAVA_OPT} -Drocketmq.broker.diskSpaceWarningLevelRatio=0.98"\
+	（磁盘保护的百分比设置成98%，只有磁盘空间使用率达到98%时才拒绝接收producer消息）\
+ 4).rocketmq依赖
  
+ 	<properties>
+            <rocketmq.version>4.1.0-incubating</rocketmq.version>
+    	</properties>
+ 	<dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>${rocketmq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-common</artifactId>
+            <version>${rocketmq.version}</version>
+        </dependency>
+ 配置文件：
+ 	
+	# 消费者的组名
+	apache.rocketmq.consumer.PushConsumer=orderConsumer
+	# 生产者的组名
+	apache.rocketmq.producer.producerGroup=Producer
+	# NameServer地址
+	apache.rocketmq.namesrvAddr=127.0.0.1:9876
