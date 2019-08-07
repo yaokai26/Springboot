@@ -467,7 +467,7 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
  
  1).安装部署rocketmq:配置环境变量ROCKETMQ_HOME,修改runserver.sh和runbroker.sh中的内存参数(128m),启动mqnamesrv.cmd，再启动Broker:start mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true,如果提示找不到或者无法加载主类，%CLASSPATH%加上"",重新启动。
  
- 2).可视化插件：https://github.com/apache/rocketmq-externals.git, idea导入启动,修改nameserver地址rocketmq.config.namesrvAddr=192.168.0.101:9876,默认端口localhost:8080
+ 2).可视化插件：https://github.com/apache/rocketmq-externals.git, bin目录下执行git: mvn clean package -Dmaven.test.skip=true(还是导入idea启动),首先修改application.properties中nameserver地址rocketmq.config.namesrvAddr=192.168.0.101:9876,默认端口localhost:8080
  
  3).DESC: service not available now, maybe disk full, CL:\
  解决：修改启动脚本runbroker.sh，在里面增加一句话即可:\
@@ -476,7 +476,7 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
 	
  4).rocketmq依赖
  
- 	<properties>
+        <properties>
             <rocketmq.version>4.1.0-incubating</rocketmq.version>
     	</properties>
  	<dependency>
@@ -489,6 +489,7 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
             <artifactId>rocketmq-common</artifactId>
             <version>${rocketmq.version}</version>
         </dependency>
+
  配置文件：
  	
 	# 消费者的组名
