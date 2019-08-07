@@ -462,4 +462,9 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
     	bean.setConnectionFactory(activeMQConnectionFactory);
     	return bean;
      }
-  
+ 
+ 6.RocketMQ实战\
+ 1)安装部署rocketmq:配置环境变量ROCKETMQ_HOME,修改runserver.sh和runbroker.sh中的内存参数(128m),启动mqnamesrv.cmd，再启动Broker:start mqbroker.cmd -n 127.0.0.1:9876 autoCreateTopicEnable=true,如果提示找不到或者无法加载主类，%CLASSPATH%加上"",重新启动。\
+ 2)可视化插件：https://github.com/apache/rocketmq-externals.git, idea导入启动,修改nameserver地址rocketmq.config.namesrvAddr=192.168.0.101:9876,默认端口localhost:8080\
+ 3)
+ 
