@@ -470,7 +470,7 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
  2).可视化插件：https://github.com/apache/rocketmq-externals.git, idea导入启动,修改nameserver地址rocketmq.config.namesrvAddr=192.168.0.101:9876,默认端口localhost:8080
  
  3).DESC: service not available now, maybe disk full, CL:\
- 解决：修改启动脚本runbroker.sh，在里面增加一句话即可：\		
+ 解决：修改启动脚本runbroker.sh，在里面增加一句话即可:\		
  JAVA_OPT="${JAVA_OPT} -Drocketmq.broker.diskSpaceWarningLevelRatio=0.98"\
  （磁盘保护的百分比设置成98%，只有磁盘空间使用率达到98%时才拒绝接收producer消息）
 	
