@@ -505,4 +505,4 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
 		      其二是函数式编程,lambda表达式为java中功能API提供了机会。\
 		      它的优势在于它能够同时提供更多请求，以及处理延迟操作。\
 3.Mono和Flux：Mono 表示的是包含 0 或者 1 个元素的异步序列，Flux表示的是包含 0 到 N 个元素的异步序列\
-4.Netty是一个异步事件驱动的网络应用框架，用于快速开发可维护的高性能服务器和客户端\
+4.Netty是一个异步事件驱动的网络应用框架，用于快速开发可维护的高性能服务器和客户端
