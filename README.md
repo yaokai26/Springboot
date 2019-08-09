@@ -498,3 +498,11 @@ JMS提供者：Apache ActiveMQ,RabbitMQ,KafKa,Notify,MetaQ,RocketMQ\
 	apache.rocketmq.producer.producerGroup=Producer
 	# NameServer地址
 	apache.rocketmq.namesrvAddr=127.0.0.1:9876
+
+### reactive响应式编程
+1.什么是响应式编程：基于事件驱动，流，异步，非阻塞。\
+2.为什么要用响应式编程：其一是需要非阻塞Web堆栈来处理少量线程的并发性，并使用较少的硬件资源进行扩展，\
+		      其二是函数式编程,lambda表达式为java中功能API提供了机会。\
+		      它的优势在于它能够同时提供更多请求，以及处理延迟操作。\
+3.Mono和Flux：Mono 表示的是包含 0 或者 1 个元素的异步序列，Flux表示的是包含 0 到 N 个元素的异步序列\
+4.Netty是一个异步事件驱动的网络应用框架，用于快速开发可维护的高性能服务器和客户端\
