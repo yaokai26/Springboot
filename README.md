@@ -384,12 +384,12 @@ java -jar  xxx.jar --Debug 用jar包启动debug级别的日志 \
 mysql:like,性能问题\
 solr:针对企业 lucene\
 elasticsearch:针对数据量特别大 PB TB\
-特点：全文检索，结构化检索，数据统计、分析，接近实时处理，分布式搜索(可部署数百台服务器)，处理PB级别的数据	搜索纠错，自动完成\
+特点：全文检索，结构化检索，数据统计、分析，接近实时处理，分布式搜索(可部署数百台服务器)，处理PB级别的数据	搜索纠错，自动完成
 			
     mysql：database     table                 rocord 
     es   : index	type（只能存在一个)    document
 
-2.整合ES\
+2.整合ES
 
 	<dependency>  
 	     <groupId>org.springframework.boot</groupId>  
