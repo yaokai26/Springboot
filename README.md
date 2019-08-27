@@ -2,7 +2,7 @@
 ### 注解
 SpringbootApplication中注解\
 @SpringBootApplication=@ComponentScan + @SpringBootConfiguration + @EnableAutoConfiguration\
-注意：SpringBootApplication类还有几个方法，可以排除特定的包名或者类，也可以扫描指定的类或者包名\
+注意：SpringBootApplication类还有几个方法，可以排除特定的包名或者类，也可以扫描指定的类或者包名
  
     1.@SpringBootConfiguration包含@Configuration，标注当前是配置类，会把@Bean标注的方法纳入spring容器中，实例名就是方法名
       @Configuration标注在类上，相当于把类当做spring的xml配置文件中的<beans>，配置spring容器(应用上下文)
